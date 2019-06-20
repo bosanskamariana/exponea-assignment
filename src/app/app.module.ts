@@ -2,10 +2,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { EventSelectBoxComponent } from './event-select-box/event-select-box.component';
+import { AttributeSelectBoxComponent } from './attribute-select-box/attribute-select-box.component';
+import { OperatorSelectBoxComponent } from './operator-select-box/operator-select-box.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EventSelectBoxComponent,
+    AttributeSelectBoxComponent,
+    OperatorSelectBoxComponent
   ],
   imports: [
     BrowserModule
