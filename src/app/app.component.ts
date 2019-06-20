@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewContainerRef, ViewChildren, QueryList, ComponentFactory, ComponentFactoryResolver } from '@angular/core';
+import { EventSelectBoxComponent } from './event-select-box/event-select-box.component'
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'exponea-assignment';
+  @ViewChildren(EventSelectBoxComponent) events: QueryList<EventSelectBoxComponent>;
+  eventComponentFactory: ComponentFactory<EventSelectBoxComponent>;
+
+  constructor(public viewContainerRef: ViewContainerRef, private componentFactoryResolver: ComponentFactoryResolver) { }
+
+  ngOnInit() {
+    this.eventComponentFactory = this.componentFactoryResolver.resolveComponentFactory(EventSelectBoxComponent);
+  }
+
+  title = 'Custom filters';
+
+  addFunnelStep() {
+    this.viewContainerRef.createComponent(this.eventComponentFactory);
+  }
 }

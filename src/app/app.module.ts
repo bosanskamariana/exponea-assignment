@@ -13,6 +13,7 @@ import { OperatorSelectBoxComponent } from './operator-select-box/operator-selec
     AttributeSelectBoxComponent,
     OperatorSelectBoxComponent
   ],
+  entryComponents: [EventSelectBoxComponent],
   imports: [
     BrowserModule
   ],

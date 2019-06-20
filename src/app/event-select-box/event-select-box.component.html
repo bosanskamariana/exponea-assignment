@@ -1,3 +1,7 @@
-<p>
-  event-select-box works!
-</p>
+<div>
+  <h3>{{ eventName }}</h3>
+  <select
+    ><option *ngFor="let event of events" [value]="event">{{ event }}</option></select
+  >
+  <button (click)="addAttribute()">+ Add event attribute</button>
+</div>
