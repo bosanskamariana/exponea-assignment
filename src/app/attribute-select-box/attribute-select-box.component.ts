@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Attribute } from '../data-model/types';
+
 
 @Component({
   selector: 'app-attribute-select-box',
@@ -8,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class AttributeSelectBoxComponent implements OnInit {
 
   constructor() { }
+  @Input() attribute: Attribute;
 
   ngOnInit() {
   }

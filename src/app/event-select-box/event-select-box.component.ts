@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import events from './../data-model/events';
+import { FilterEvent, Attribute } from '../data-model/types';
 
 @Component({
   selector: 'app-event-select-box',
@@ -8,18 +10,21 @@ import { Component, OnInit } from '@angular/core';
 export class EventSelectBoxComponent implements OnInit {
 
   constructor() { }
+  eventsList = events;
+  selectedEvent: string;
 
-  events = [
-    'python-script-1',
-    'python-script-2',
-    'python-script-3',
-    'python-script-4',
-  ];
-  
+  @Input() event: FilterEvent;
+  @Input() counter: number;
+
   ngOnInit() {
+    this.selectedEvent = this.eventsList[0];
   }
 
-  addAttribute() {
-    console.log('todo add attribute')
+  addAttribute(attribute: Attribute) {
+    this.event.attributes.push(attribute);
+  }
+
+  removeAttribute(attributeId: string) {
+    this.event.attributes = this.event.attributes.filter(({ id }) => id !== attributeId);
   }
 }

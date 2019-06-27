@@ -1,5 +1,9 @@
-import { Component, ViewContainerRef, ViewChildren, QueryList, ComponentFactory, ComponentFactoryResolver } from '@angular/core';
-import { EventSelectBoxComponent } from './event-select-box/event-select-box.component'
+import { Component, } from '@angular/core';
+import { CustomFilterService } from './custom-filter.service';
+import { FilterEvent } from './data-model/types';
+import { generateID } from './helpers/id-generator';
+import events from './data-model/events';
+
 
 @Component({
   selector: 'app-root',
@@ -7,18 +11,36 @@ import { EventSelectBoxComponent } from './event-select-box/event-select-box.com
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  @ViewChildren(EventSelectBoxComponent) events: QueryList<EventSelectBoxComponent>;
-  eventComponentFactory: ComponentFactory<EventSelectBoxComponent>;
-
-  constructor(public viewContainerRef: ViewContainerRef, private componentFactoryResolver: ComponentFactoryResolver) { }
+  constructor(private filter: CustomFilterService) { }
 
   ngOnInit() {
-    this.eventComponentFactory = this.componentFactoryResolver.resolveComponentFactory(EventSelectBoxComponent);
+    // todo load init filter
   }
 
-  title = 'Custom filters';
+  removeFunnelStep(id: string) {
+    this.filter.removeEvent(id);
+  }
 
-  addFunnelStep() {
-    this.viewContainerRef.createComponent(this.eventComponentFactory);
+  addFunnelStep(name: string = events[0]) {
+    this.filter.addEvent({
+      attributes: [],
+      name,
+      id: generateID()
+    });
+  }
+
+  cloneFunnelStep(event: FilterEvent) {
+    this.filter.addEvent({
+      ...event,
+      id: generateID()
+    });
+  }
+
+  applyFilter() {
+    console.log(this.filter);
+  }
+
+  discardFilter() {
+    this.filter.events = [];
   }
 }

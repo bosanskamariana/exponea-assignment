@@ -1,7 +1,21 @@
-<div>
-  <h3>{{ selectedEvent }}</h3>
-  <select [(ngModel)]="selectedEvent"
-    ><option *ngFor="let event of events" [value]="event">{{ event }}</option></select
-  >
-  <button (click)="addAttribute()">+ Add event attribute</button>
+<div class="eventBox">
+  <h3>
+    <span class="stepNumber">{{ counter }} . STEP</span
+    ><span class="eventName">{{ selectedEvent }}</span>
+  </h3>
+  <div class="inputBox">
+    <ng-select
+      [items]="eventsList"
+      bindLabel="eventsList"
+      autofocus
+      bindValue="eventsList"
+      (search)="addAttribute()"
+      [(ngModel)]="selectedEvent"
+    >
+    </ng-select>
+    <app-attribute-select-box
+      ngFor="let eventAttribute of event.attributes"
+      [attribute]="epventAttribute"
+    ></app-attribute-select-box>
+  </div>
 </div>
