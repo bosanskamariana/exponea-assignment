@@ -5,9 +5,10 @@ export interface FilterEvent {
 }
 
 export interface Attribute {
+  type: string;
   id: string;
   name: string;
-  operator: Operator;
+  operator: Operator | null;
   value: string | number;
   value2?: string | number;
 }
