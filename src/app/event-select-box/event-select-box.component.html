@@ -9,7 +9,7 @@
       bindLabel="eventsList"
       autofocus
       bindValue="eventsList"
-      (search)="addAttribute()"
+      (change)="setEvent(selectedEvent)"
       [(ngModel)]="selectedEvent"
     >
     </ng-select>
@@ -20,5 +20,9 @@
     <button (click)="createEmptyAttribute()">
       {{ !event.attributes.length ? '+ Add attribute' : 'Refine more' }}
     </button>
+  </div>
+  <div class="eventButtons">
+    <button (click)="removeFunnelStep(event.id)">Trash</button>
+    <button (click)="cloneFunnelStep(event)">Clone</button>
   </div>
 </div>

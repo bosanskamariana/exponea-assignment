@@ -1,6 +1,5 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CustomFilterService } from './custom-filter.service';
-import { FilterEvent } from './data-model/types';
 import { generateID } from './helpers/id-generator';
 import events from './data-model/events';
 
@@ -17,21 +16,10 @@ export class AppComponent implements OnInit {
     // todo load init filter
   }
 
-  removeFunnelStep(id: string) {
-    this.filter.removeEvent(id);
-  }
-
   addFunnelStep(name: string = events[0]) {
     this.filter.addEvent({
       attributes: [],
       name,
-      id: generateID()
-    });
-  }
-
-  cloneFunnelStep(event: FilterEvent) {
-    this.filter.addEvent({
-      ...event,
       id: generateID()
     });
   }

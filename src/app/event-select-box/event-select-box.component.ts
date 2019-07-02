@@ -2,6 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import events from './../data-model/events';
 import { FilterEvent, Attribute } from '../data-model/types';
 import { generateID } from './../helpers/id-generator';
+import { CustomFilterService } from '../custom-filter.service';
+import { clone } from 'ramda';
+
 @Component({
   selector: 'app-event-select-box',
   templateUrl: './event-select-box.component.html',
@@ -9,7 +12,7 @@ import { generateID } from './../helpers/id-generator';
 })
 export class EventSelectBoxComponent implements OnInit {
 
-  constructor() { }
+  constructor(private filter: CustomFilterService) { }
   eventsList = events;
   selectedEvent: string;
 
@@ -17,25 +20,33 @@ export class EventSelectBoxComponent implements OnInit {
   @Input() counter: number;
 
   ngOnInit() {
-    this.selectedEvent = this.eventsList[0];
+    this.selectedEvent = this.event.name || this.eventsList[0];
   }
 
-  addAttribute(attribute: Attribute) {
-    console.log('addAttribute', attribute);
-    this.event.attributes.push(attribute);
+  cloneFunnelStep(event: FilterEvent) {
+    this.filter.addEvent({
+      ...clone(event),
+      id: generateID()
+    });
+  }
+
+  removeFunnelStep(id: string) {
+    this.filter.removeEvent(id);
+  }
+
+  setEvent(name: string) {
+    this.event.name = name;
   }
 
   createEmptyAttribute() {
-    const empty = {
+    this.event.attributes.push({
       id: generateID(),
       type: 'text',
       name: 'Unnamed',
       operator: null,
       value: '',
       value2: ''
-    };
-
-    this.event.attributes.push(empty);
+    });
   }
 
   removeAttribute(attributeId: string) {
