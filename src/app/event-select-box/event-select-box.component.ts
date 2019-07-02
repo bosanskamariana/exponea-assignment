@@ -15,12 +15,17 @@ export class EventSelectBoxComponent implements OnInit {
   constructor(private filter: CustomFilterService) { }
   eventsList = events;
   selectedEvent: string;
+  opened = false;
 
   @Input() event: FilterEvent;
   @Input() counter: number;
 
   ngOnInit() {
     this.selectedEvent = this.event.name || this.eventsList[0];
+  }
+
+  toggleSelectBox() {
+    this.opened = !this.opened;
   }
 
   cloneFunnelStep(event: FilterEvent) {
@@ -36,6 +41,7 @@ export class EventSelectBoxComponent implements OnInit {
 
   setEvent(name: string) {
     this.event.name = name;
+    this.opened = false;
   }
 
   createEmptyAttribute() {

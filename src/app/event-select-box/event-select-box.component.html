@@ -4,7 +4,9 @@
     ><span class="eventName">{{ selectedEvent }}</span>
   </h3>
   <div class="inputBox">
+    <button (click)="toggleSelectBox()">{{ selectedEvent }}</button>
     <ng-select
+      *ngIf="opened"
       [items]="eventsList"
       bindLabel="eventsList"
       autofocus
