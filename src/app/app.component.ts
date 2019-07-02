@@ -1,4 +1,4 @@
-import { Component, } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { CustomFilterService } from './custom-filter.service';
 import { FilterEvent } from './data-model/types';
 import { generateID } from './helpers/id-generator';
@@ -10,7 +10,7 @@ import events from './data-model/events';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   constructor(private filter: CustomFilterService) { }
 
   ngOnInit() {
