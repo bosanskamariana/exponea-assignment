@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import events from './../data-model/events';
 import { FilterEvent, Attribute } from '../data-model/types';
-
+import { generateID } from './../helpers/id-generator';
 @Component({
   selector: 'app-event-select-box',
   templateUrl: './event-select-box.component.html',
@@ -21,7 +21,21 @@ export class EventSelectBoxComponent implements OnInit {
   }
 
   addAttribute(attribute: Attribute) {
+    console.log('addAttribute', attribute);
     this.event.attributes.push(attribute);
+  }
+
+  createEmptyAttribute() {
+    const empty = {
+      id: generateID(),
+      type: 'text',
+      name: 'Unnamed',
+      operator: null,
+      value: '',
+      value2: ''
+    };
+
+    this.event.attributes.push(empty);
   }
 
   removeAttribute(attributeId: string) {

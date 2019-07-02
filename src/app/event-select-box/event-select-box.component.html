@@ -13,9 +13,12 @@
       [(ngModel)]="selectedEvent"
     >
     </ng-select>
-    <app-attribute-select-box
-      ngFor="let eventAttribute of event.attributes"
-      [attribute]="epventAttribute"
-    ></app-attribute-select-box>
+    <app-attribute
+      *ngFor="let eventAttribute of event.attributes"
+      [attribute]="eventAttribute"
+    ></app-attribute>
+    <button (click)="createEmptyAttribute()">
+      {{ !event.attributes.length ? '+ Add attribute' : 'Refine more' }}
+    </button>
   </div>
 </div>
