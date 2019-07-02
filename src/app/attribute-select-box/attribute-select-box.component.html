@@ -1,3 +1,11 @@
-<p>
-  attribute-select-box works!
-</p>
+<div>
+    <button (click)="toggleSelect()">{{ selectedAttribute }}</button>
+    <div *ngIf="opened">
+      <div>
+        <span>{{ selectedAttribute }}</span>
+      </div>
+      <ul>
+        <li [tabindex]="0" (click)="setAttribute(attribute)" *ngFor="let attribute of attributes">{{ attribute }}</li>
+      </ul>
+    </div>
+  </div>

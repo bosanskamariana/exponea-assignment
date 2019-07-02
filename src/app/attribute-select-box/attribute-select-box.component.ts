@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Attribute } from '../data-model/types';
-
+import attributesList from '../data-model/attributes';
 
 @Component({
   selector: 'app-attribute-select-box',
@@ -10,9 +10,23 @@ import { Attribute } from '../data-model/types';
 export class AttributeSelectBoxComponent implements OnInit {
 
   constructor() { }
+
+  attributes = attributesList;
+  opened = false;
+  selectedAttribute = 'Unnamed'; // default
+
   @Input() attribute: Attribute;
 
   ngOnInit() {
   }
 
+  toggleSelect() {
+    this.opened = !this.opened;
+  }
+  setAttribute(name: string) {
+    console.log('name', name);
+    this.attribute.name = name;
+    this.selectedAttribute = name;
+    this.opened = false;
+  }
 }
