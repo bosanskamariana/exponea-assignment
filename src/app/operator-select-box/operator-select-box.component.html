@@ -1,3 +1,14 @@
-<p>
-  operator-select-box works!
-</p>
+<div>
+  <button (click)="toggleSelect()">{{ selectedOperator }}</button>
+  <div *ngIf="opened">
+    <div>
+      <button (click)="setStringOperators()">String</button>
+      <button (click)="setNumOperators()">Number</button>
+    </div>
+    <ul>
+      <li [tabindex]="0" (click)="setOperator(operator)" *ngFor="let operator of operators">
+        {{ operator }}
+      </li>
+    </ul>
+  </div>
+</div>
