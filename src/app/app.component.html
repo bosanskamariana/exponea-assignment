@@ -1,12 +1,17 @@
-<h1>Customer filter</h1>
-<br />
-<div class="filterBox">
-  <app-event-select-box
-    *ngFor="let event of filter.events; let i = index"
-    [event]="event"
-    [counter]="i + 1"
-  ></app-event-select-box>
+<div class="container">
+  <div class="borderBox">
+    <div class="header">
+      <h1 class="heading">CUSTOMER FILTER</h1>
+      <button class="discardBtn" (click)="discardFilter()">DISCARD FILTERS</button>
+    </div>
+    <div class="filterBox">
+      <app-event-select-box
+        *ngFor="let event of filter.events; let i = index"
+        [event]="event"
+        [counter]="i + 1"
+      ></app-event-select-box>
+      <button class="blueBtn addStep" (click)="addFunnelStep()">+ ADD FUNNEL STEP</button>
+    </div>
+    <button class="applyBtn" (click)="applyFilter()">Apply filters</button>
+  </div>
 </div>
-<button (click)="addFunnelStep()">+ ADD FUNNEL STEP</button>
-<button (click)="discardFilter()">DISCARD FILTERS</button>
-<button (click)="applyFilter()">APPLY FILTERS</button>
