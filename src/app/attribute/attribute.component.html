@@ -1,22 +1,24 @@
-<div *ngIf="attribute">
+<div *ngIf="attribute" class="attribute">
   <app-attribute-select-box [attribute]="attribute"></app-attribute-select-box>
   <app-operator-select-box
     *ngIf="attribute.name && attribute.name !== 'Unnamed'"
     [attribute]="attribute"
   ></app-operator-select-box>
-  <input
-    *ngIf="attribute.name && attribute.name !== 'Unnamed'"
-    #value1
-    [type]="attribute.type"
-    [value]="attribute.value"
-    (keyup)="setValue(value1.value)"
-  />
-  <span *ngIf="attribute.operator === 'in between'">between</span>
-  <input
-    #value2
-    [type]="attribute.type"
-    *ngIf="attribute.value2 || attribute.operator === 'in between'"
-    [value]="attribute.value2"
-    (keyup)="setValue2(value2.value)"
-  />
+  <div class="inputsBox">
+    <input
+      *ngIf="attribute.name && attribute.name !== 'Unnamed'"
+      #value1
+      [type]="attribute.type"
+      [value]="attribute.value"
+      (keyup)="setValue(value1.value)"
+    />
+    <span *ngIf="attribute.operator === 'in between'">and</span>
+    <input
+      #value2
+      [type]="attribute.type"
+      *ngIf="attribute.value2 || attribute.operator === 'in between'"
+      [value]="attribute.value2"
+      (keyup)="setValue2(value2.value)"
+    />
+  </div>
 </div>

@@ -1,0 +1,30 @@
+.attribute {
+  display: flex;
+  align-items: baseline;
+  // flex-direction: column;
+  margin: 16px;
+  margin-top: 0;
+  height: 40px;
+}
+
+.inputsBox {
+  position: absolute;
+  left: 420px;
+  display: flex;
+  span {
+    height: 40px;
+    line-height: 40px;
+    margin: 0 12px;
+  }
+  input {
+    font-weight: bold;
+    font-size: 14px;
+    min-width: 180px;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #d9dde6;
+    background-color: white;
+    padding: 0;
+    padding-left: 16px;
+  }
+}

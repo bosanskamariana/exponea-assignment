@@ -13,11 +13,12 @@ export class AttributeSelectBoxComponent implements OnInit {
 
   attributes = attributesList;
   opened = false;
-  selectedAttribute = 'Unnamed'; // default
+  selectedAttribute: string;
 
   @Input() attribute: Attribute;
 
   ngOnInit() {
+    this.selectedAttribute = this.attribute.name || 'Unnamed'; // default
   }
 
   toggleSelect() {

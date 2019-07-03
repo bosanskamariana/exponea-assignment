@@ -1,3 +1,98 @@
-.inputBox {
-  max-width: 300px;
+@import '../../variables.scss';
+
+.ng-select-container {
+  background-color: white;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+}
+.ng-select .ng-select-container .ng-value-container .ng-input > input,
+.ng-value {
+  margin-left: 18px;
+  font-size: 16px;
+}
+
+.ng-select .ng-select-container:after {
+  border-bottom: none;
+  border: 1px solid rgba(141, 139, 139, 0.42);
+}
+
+.ng-select.event {
+  background-color: white;
+  min-width: 500px;
+  .ng-dropdown-panel {
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+    .ng-dropdown-panel-items {
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      align-content: flex-start;
+    }
+
+    .ng-dropdown-panel-items {
+      z-index: 1002;
+      div:nth-child(2) {
+        width: 100%;
+        display: flex;
+        align-content: flex-start;
+        flex-direction: column;
+        flex-wrap: wrap;
+        .ng-option {
+          display: flex;
+          width: 50%;
+        }
+        .ng-option-marked {
+          background-color: $yellow;
+        }
+      }
+    }
+  }
+}
+
+.eventBox {
+  padding: 24px;
+  min-height: 100px;
+
+  h3 {
+    display: flex;
+    align-items: baseline;
+  }
+
+  .inputBox {
+    position: relative; //
+  }
+}
+
+.eventWrapper {
+  position: absolute; //
+}
+
+.attributeWrapper {
+  position: relative; //
+  left: 200px;
+  width: fit-content;
+
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.blueText {
+  color: $blueText;
+}
+
+.eventName {
+  font-weight: normal;
+}
+
+.eventButtons {
+  display: flex;
+}
+
+.eventHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.addAttr {
+  position: relative;
 }

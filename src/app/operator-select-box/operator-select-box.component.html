@@ -1,5 +1,5 @@
-<div>
-  <button (click)="toggleSelect()">{{ selectedOperator }}</button>
+<div class="operatorSelectBox">
+  <button class="borderBtn" (click)="toggleSelect()">{{ selectedOperator }}</button>
   <div *ngIf="opened">
     <div>
       <button (click)="setStringOperators()">String</button>

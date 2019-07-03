@@ -4,11 +4,13 @@ import { FilterEvent, Attribute } from '../data-model/types';
 import { generateID } from './../helpers/id-generator';
 import { CustomFilterService } from '../custom-filter.service';
 import { clone } from 'ramda';
+import { ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-event-select-box',
   templateUrl: './event-select-box.component.html',
-  styleUrls: ['./event-select-box.component.scss']
+  styleUrls: ['./event-select-box.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class EventSelectBoxComponent implements OnInit {
 
@@ -40,7 +42,7 @@ export class EventSelectBoxComponent implements OnInit {
   }
 
   setEvent(name: string) {
-    this.event.name = name;
+    this.event.name = name || this.event.name;
     this.opened = false;
   }
 

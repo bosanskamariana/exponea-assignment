@@ -1,30 +1,42 @@
 <div class="eventBox">
-  <h3>
-    <span class="stepNumber">{{ counter }} . STEP</span
-    ><span class="eventName">{{ selectedEvent }}</span>
-  </h3>
-  <div class="inputBox">
-    <button (click)="toggleSelectBox()">{{ selectedEvent }}</button>
-    <ng-select
-      *ngIf="opened"
-      [items]="eventsList"
-      bindLabel="eventsList"
-      autofocus
-      bindValue="eventsList"
-      (change)="setEvent(selectedEvent)"
-      [(ngModel)]="selectedEvent"
-    >
-    </ng-select>
-    <app-attribute
-      *ngFor="let eventAttribute of event.attributes"
-      [attribute]="eventAttribute"
-    ></app-attribute>
-    <button (click)="createEmptyAttribute()">
-      {{ !event.attributes.length ? '+ Add attribute' : 'Refine more' }}
-    </button>
+  <div class="eventHeader">
+    <h3>
+      <span class="stepNumber blueText">{{ counter }} . STEP:&nbsp;</span
+      ><span class="eventName">{{ selectedEvent }}</span>
+    </h3>
+    <div class="eventButtons">
+      <button (click)="removeFunnelStep(event.id)">Trash</button>
+      <button (click)="cloneFunnelStep(event)">Clone</button>
+    </div>
   </div>
-  <div class="eventButtons">
-    <button (click)="removeFunnelStep(event.id)">Trash</button>
-    <button (click)="cloneFunnelStep(event)">Clone</button>
+  <div class="inputBox">
+    <div class="eventWrapper">
+      <button class="borderBtn eventTrigger" (click)="toggleSelectBox()">
+        {{ selectedEvent }}
+      </button>
+      <ng-select
+        class="event"
+        isOpen="true"
+        *ngIf="opened"
+        [items]="eventsList"
+        bindLabel="eventsList"
+        autofocus
+        bindValue="eventsList"
+        (search)="foo($event)"
+        (change)="setEvent(selectedEvent)"
+        [(ngModel)]="selectedEvent"
+      >
+      </ng-select>
+    </div>
+    <div class="attributeWrapper">
+      <app-attribute
+        *ngFor="let eventAttribute of event.attributes"
+        [attribute]="eventAttribute"
+      ></app-attribute>
+
+      <button class="blueBtn addAttr" (click)="createEmptyAttribute()">
+        {{ !event.attributes.length ? '+ Add attribute' : 'Refine more' }}
+      </button>
+    </div>
   </div>
 </div>
