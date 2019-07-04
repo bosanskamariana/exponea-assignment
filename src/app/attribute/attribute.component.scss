@@ -1,15 +1,11 @@
 .attribute {
   display: flex;
-  align-items: baseline;
-  // flex-direction: column;
-  margin: 16px;
-  margin-top: 0;
+  margin: 0 0 16px 16px;
   height: 40px;
 }
 
 .inputsBox {
-  position: absolute;
-  left: 420px;
+  margin-right: 12px;
   display: flex;
   span {
     height: 40px;
