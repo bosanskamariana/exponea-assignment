@@ -1,8 +1,8 @@
 <div class="attributeSelectBox">
   <button class="borderBtn" (click)="toggleSelect()">{{ selectedAttribute }}</button>
-  <div *ngIf="opened">
-    <div>
-      <span>{{ selectedAttribute }}</span>
+  <div *ngIf="opened" class="dropdown">
+    <div class="eventName">
+      <div>{{ event.name }}</div>
     </div>
     <ul>
       <li [tabindex]="0" (click)="setAttribute(attribute)" *ngFor="let attribute of attributes">

@@ -1,5 +1,5 @@
 <div *ngIf="attribute" class="attribute">
-  <app-attribute-select-box [attribute]="attribute"></app-attribute-select-box>
+  <app-attribute-select-box [attribute]="attribute" [event]="event"></app-attribute-select-box>
   <app-operator-select-box
     *ngIf="attribute.name && attribute.name !== 'Unnamed'"
     [attribute]="attribute"

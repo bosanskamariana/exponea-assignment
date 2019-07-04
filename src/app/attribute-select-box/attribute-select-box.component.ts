@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Attribute } from '../data-model/types';
+import { Attribute, FilterEvent } from '../data-model/types';
 import attributesList from '../data-model/attributes';
 
 @Component({
@@ -15,17 +15,21 @@ export class AttributeSelectBoxComponent implements OnInit {
   opened = false;
   selectedAttribute: string;
 
+  @Input() event: FilterEvent;
   @Input() attribute: Attribute;
 
   ngOnInit() {
-    this.selectedAttribute = this.attribute.name || 'Unnamed'; // default
+    this.selectedAttribute = this.attribute.name || 'Unnamed';
   }
 
-  toggleSelect() {
-    this.opened = !this.opened;
+  toggleSelect(val: boolean) {
+    if (val !== undefined) {
+      this.opened = val;
+    } else {
+      this.opened = !this.opened;
+    }
   }
   setAttribute(name: string) {
-    console.log('name', name);
     this.attribute.name = name;
     this.selectedAttribute = name;
     this.opened = false;
