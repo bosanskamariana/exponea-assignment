@@ -20,7 +20,6 @@ export type NumOperator =
   'less than' |
   'grater than';
 
-
 export type StringOperator =
   'equals' |
   'does not equal' |

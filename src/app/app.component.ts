@@ -3,7 +3,6 @@ import { CustomFilterService } from './custom-filter.service';
 import { generateID } from './helpers/id-generator';
 import events from './data-model/events';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

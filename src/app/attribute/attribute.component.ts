@@ -6,15 +6,10 @@ import { Attribute, FilterEvent } from '../data-model/types';
   templateUrl: './attribute.component.html',
   styleUrls: ['./attribute.component.scss']
 })
-export class AttributeComponent implements OnInit {
-
-  constructor() { }
+export class AttributeComponent {
 
   @Input() attribute: Attribute;
   @Input() event: FilterEvent;
-
-  ngOnInit() {
-  }
 
   setValue(value: string) {
     this.attribute.value = value;

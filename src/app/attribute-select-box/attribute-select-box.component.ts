@@ -9,8 +9,6 @@ import attributesList from '../data-model/attributes';
 })
 export class AttributeSelectBoxComponent implements OnInit {
 
-  constructor() { }
-
   attributes = attributesList;
   opened = false;
   selectedAttribute: string;

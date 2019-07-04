@@ -26,7 +26,6 @@ export class EventSelectBoxComponent implements OnInit {
     this.selectedEvent = this.event.name || this.eventsList[0];
   }
 
-
   toggleSelectBox(val: boolean) {
     if (val !== undefined) {
       this.opened = val;

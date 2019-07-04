@@ -7,9 +7,7 @@ import { numberOperators, stringOperators } from '../data-model/operators';
   templateUrl: './operator-select-box.component.html',
   styleUrls: ['./operator-select-box.component.scss']
 })
-export class OperatorSelectBoxComponent implements OnInit {
-
-  constructor() { }
+export class OperatorSelectBoxComponent {
 
   operators = numberOperators;
   selectedOperator = 'equals'; // default
@@ -17,9 +15,6 @@ export class OperatorSelectBoxComponent implements OnInit {
   active = 'number';
 
   @Input() attribute: Attribute;
-
-  ngOnInit() {
-  }
 
   toggleSelect(val: boolean) {
     if (val !== undefined) {

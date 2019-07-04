@@ -5,8 +5,6 @@ import { FilterEvent } from './data-model/types';
 })
 export class CustomFilterService {
 
-  constructor() { }
-
   events: FilterEvent[] = [];
 
   addEvent(event: FilterEvent) {
