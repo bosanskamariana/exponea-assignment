@@ -57,22 +57,29 @@
   }
 
   .inputBox {
-    position: relative; //
+    position: relative;
+  }
+
+  &:hover {
+    .eventButtons {
+      display: flex;
+    }
   }
 }
-
 .eventWrapper {
-  position: absolute; //
+  position: absolute;
 }
 
 .attributeWrapper {
-  position: relative; //
+  position: relative;
   left: 200px;
   width: fit-content;
-
   display: flex;
   flex-direction: column;
   align-items: baseline;
+  & > div {
+    display: flex;
+  }
 }
 
 .blueText {
@@ -84,7 +91,7 @@
 }
 
 .eventButtons {
-  display: flex;
+  display: none;
 }
 
 .eventHeader {
@@ -94,5 +101,6 @@
 }
 
 .addAttr {
-  position: relative;
+   position: relative;
+   height: 40px;
 }

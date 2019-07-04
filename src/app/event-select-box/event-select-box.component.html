@@ -5,8 +5,12 @@
       ><span class="eventName">{{ selectedEvent }}</span>
     </h3>
     <div class="eventButtons">
-      <button (click)="removeFunnelStep(event.id)">Trash</button>
-      <button (click)="cloneFunnelStep(event)">Clone</button>
+      <button class="iconBtn" (click)="removeFunnelStep(event.id)">
+        <img src="assets/img/trash.svg" />
+      </button>
+      <button class="iconBtn" (click)="cloneFunnelStep(event)">
+        <img src="assets/img/copy.svg" />
+      </button>
     </div>
   </div>
   <div class="inputBox">
@@ -29,10 +33,12 @@
       </ng-select>
     </div>
     <div class="attributeWrapper">
-      <app-attribute
-        *ngFor="let eventAttribute of event.attributes"
-        [attribute]="eventAttribute"
-      ></app-attribute>
+      <div *ngFor="let eventAttribute of event.attributes">
+        <app-attribute [attribute]="eventAttribute" [event]="event"></app-attribute>
+        <button class="iconBtn" (click)="removeAttribute(eventAttribute.id)">
+          <img src="assets/img/delete.svg" />
+        </button>
+      </div>
 
       <button class="blueBtn addAttr" (click)="createEmptyAttribute()">
         {{ !event.attributes.length ? '+ Add attribute' : 'Refine more' }}
