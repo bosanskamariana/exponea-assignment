@@ -26,8 +26,13 @@ export class EventSelectBoxComponent implements OnInit {
     this.selectedEvent = this.event.name || this.eventsList[0];
   }
 
-  toggleSelectBox() {
-    this.opened = !this.opened;
+
+  toggleSelectBox(val: boolean) {
+    if (val !== undefined) {
+      this.opened = val;
+    } else {
+      this.opened = !this.opened;
+    }
   }
 
   cloneFunnelStep(event: FilterEvent) {
