@@ -1,4 +1,34 @@
+@import '../../variables.scss';
+
 .operatorSelectBox {
-  position: absolute;
-  left: 220px;
+  margin-right: 12px;
+
+  & > button {
+    background-color: $darkBlue;
+    color: $borderGray;
+  }
+}
+
+.operatorButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-top: 12px;
+  border-bottom: 1px solid $borderGray;
+}
+
+.operatorBtn {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: $borderGray;
+  svg.icon {
+    fill: $borderGray;
+  }
+  &.active {
+    color: black;
+    svg.icon {
+      fill: black;
+    }
+  }
 }

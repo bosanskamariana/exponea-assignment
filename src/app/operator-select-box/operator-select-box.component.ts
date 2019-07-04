@@ -14,19 +14,22 @@ export class OperatorSelectBoxComponent implements OnInit {
   operators = numberOperators;
   selectedOperator = 'equals'; // default
   opened = false;
+  active = 'number';
 
   @Input() attribute: Attribute;
 
   ngOnInit() {
   }
 
-  toggleSelect() {
-    this.opened = !this.opened;
+  toggleSelect(val: boolean) {
+    if (val !== undefined) {
+      this.opened = val;
+    } else {
+      this.opened = !this.opened;
+    }
   }
 
-
   setOperator(operator: Operator) {
-    console.log('operator', operator);
     if (this.attribute.value2 && operator !== 'in between') {
       this.attribute.value2 = '';
     }
