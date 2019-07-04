@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { OperatorSelectBoxComponent } from './operator-select-box.component';
 
 describe('OperatorSelectBoxComponent', () => {
@@ -8,9 +8,10 @@ describe('OperatorSelectBoxComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OperatorSelectBoxComponent ]
+      declarations: [OperatorSelectBoxComponent],
+      schemas: [NO_ERRORS_SCHEMA],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
