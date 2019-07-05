@@ -1,5 +1,7 @@
 <div class="attributeSelectBox">
-  <button class="borderBtn" (click)="toggleSelect()">{{ selectedAttribute }}</button>
+  <button class="borderBtn" (blur)="toggleSelect(false)" (click)="toggleSelect()">
+    {{ selectedAttribute }}
+  </button>
   <div *ngIf="opened" class="dropdown">
     <div class="eventName">
       <div>{{ event.name }}</div>

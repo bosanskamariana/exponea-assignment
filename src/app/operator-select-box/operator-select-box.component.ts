@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Attribute, Operator } from '../data-model/types';
 import { numberOperators, stringOperators } from '../data-model/operators';
 
