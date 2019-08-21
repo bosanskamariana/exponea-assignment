@@ -1,5 +1,5 @@
 <div class="attributeSelectBox">
-  <button class="borderBtn" (blur)="toggleSelect(false)" (click)="toggleSelect()">
+  <button class="borderBtn" (blur)="toggleSelect(false)" (click)="toggleSelect($event)">
     {{ selectedAttribute }}
   </button>
   <div *ngIf="opened" class="dropdown">
@@ -7,7 +7,7 @@
       <div>{{ event.name }}</div>
     </div>
     <ul>
-      <li [tabindex]="0" (click)="setAttribute(attribute)" *ngFor="let attribute of attributes">
+      <li [tabindex]="0" (mousedown)="setAttribute(attribute)" *ngFor="let attribute of attributes">
         {{ attribute }}
       </li>
     </ul>
